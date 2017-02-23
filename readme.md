@@ -1,6 +1,7 @@
 #go-mysql-rabbitmq
 Golang реализация протокола MySQL репликации.
 На каждый SQL запрос изменяющий данные в MySQL отправляется сообщение в RabbitMQ.
+
 Сообщения попадают в Exchange с именем заданным в парметре `-rabbitmq_exchange` и routing key состоящим из  `[schema].[table name].[event type]`
 
 
