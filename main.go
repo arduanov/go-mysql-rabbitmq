@@ -72,7 +72,7 @@ func main() {
 
 	err = c.Start()
 	if err != nil {
-		fmt.Printf("start canal err %V", err)
+		fmt.Printf("start canal err %v", err)
 		os.Exit(1)
 	}
 
