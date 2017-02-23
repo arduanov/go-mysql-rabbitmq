@@ -1,0 +1,34 @@
+hash: f0aba63dafa313b3643dda07fad9127cce5519cb8f3f614e63d95ce55abddc96
+updated: 2017-02-23T14:05:27.194828462+05:00
+imports:
+- name: github.com/BurntSushi/toml
+  version: 056c9bc7be7190eaa7715723883caffa5f8fa3e4
+- name: github.com/juju/errors
+  version: 6f54ff6318409d31ff16261533ce2c8381a4fd5d
+- name: github.com/ngaut/log
+  version: cec23d3e10b016363780d894a0eb732a12c06e02
+- name: github.com/satori/go.uuid
+  version: 879c5887cd475cd7864858769793b2ceb0d44feb
+- name: github.com/siddontang/go
+  version: 354e14e6c093c661abb29fd28403b3c19cff5514
+  subpackages:
+  - hack
+  - ioutil2
+  - sync2
+- name: github.com/siddontang/go-mysql
+  version: a1b45c581ef7574de382c6b65296f2ab4cc89338
+  subpackages:
+  - canal
+  - client
+  - dump
+  - mysql
+  - packet
+  - replication
+  - schema
+- name: github.com/streadway/amqp
+  version: d75c3a341ff43309ad0cb69ac8bdbd1d8772775f
+- name: golang.org/x/net
+  version: 6acef71eb69611914f7a30939ea9f6e194c78172
+  subpackages:
+  - context
+testImports: []

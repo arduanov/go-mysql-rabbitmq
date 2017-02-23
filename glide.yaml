@@ -1,0 +1,6 @@
+package: go-mysql-rabbitmq
+import:
+- package: github.com/siddontang/go-mysql
+  subpackages:
+  - canal
+- package: github.com/streadway/amqp
