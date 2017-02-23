@@ -218,10 +218,3 @@ Delete
   -user string
         MySQL user, must have replication privilege (default "root")
 ```
-
-Установка зависимостей
-===
-```
-curl https://glide.sh/get | sh
-glide install
-```
