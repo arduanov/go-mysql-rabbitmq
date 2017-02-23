@@ -1,19 +1,37 @@
-#go-mysql-rabbitmq
+go-mysql-rabbitmq
+===
 Golang реализация протокола MySQL репликации.
 На каждый SQL запрос изменяющий данные в MySQL отправляется сообщение в RabbitMQ.
 
 Сообщения попадают в Exchange с именем заданным в парметре `-rabbitmq_exchange` и routing key состоящим из  `[schema].[table name].[event type]`
 
 
+MySQL server settings
+===
+In your MySQL server configuration file you need to enable replication:
 
-##Виды сообщений
+    [mysqld]
+    server-id		 = 1
+    log_bin			 = /var/log/mysql/mysql-bin.log
+    expire_logs_days = 10
+    max_binlog_size  = 100M
+    binlog-format    = row #Very important if you want to receive write, update and delete row events
 
+
+Mysql user privileges:
+```
+GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'user'@'host';
+GRANT SELECT ON `dbName`.* TO 'user'@'host';
+```
+
+Виды сообщений
+===
 * insert
 * update
 * delete
 
-####Insert
-
+Insert
+---
 ```
 {
   "Table": {
@@ -63,7 +81,8 @@ Golang реализация протокола MySQL репликации.
 
 ```
 
-####Update
+Update
+---
 ```
 {
   "Table": {
@@ -117,8 +136,8 @@ Golang реализация протокола MySQL репликации.
 
 ```
 
-####Delete
-
+Delete
+---
 ```
 {
   "Table": {
@@ -168,7 +187,8 @@ Golang реализация протокола MySQL репликации.
 
 ```
 
-## Параметры для запуска go-mysql-rabbitmq
+Параметры для запуска go-mysql-rabbitmq
+===
 
 ```
   -data-dir string
@@ -199,7 +219,8 @@ Golang реализация протокола MySQL репликации.
         MySQL user, must have replication privilege (default "root")
 ```
 
-##Установка зависимостей
+Установка зависимостей
+===
 ```
 curl https://glide.sh/get | sh
 glide install
